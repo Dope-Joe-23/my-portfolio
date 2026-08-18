@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Dope-Joe-23 Portfolio"
+description = "A professional, health-tech-focused developer portfolio for Dope-Joe-23, showcasing clinical workflow products, automation tools, and selected web projects with case-study views and content customization previews."
+version = "1.0.0"
+id = "artifacts/dope-joe-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21041
+
+[services.development]
+run = "pnpm --filter @workspace/dope-joe-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dope-joe-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/dope-joe-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21041"
+BASE_PATH = "/"

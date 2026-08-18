@@ -1,8 +1,12 @@
-# [Project name]
+# Dope-Joe-23 Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A health-tech-focused developer portfolio for showcasing clinical workflow products, automation tools, and selected web projects.
 
 ## Run & Operate
+
+- `pnpm --filter @workspace/dope-joe-portfolio run dev` — run the portfolio preview
+- `pnpm --filter @workspace/dope-joe-portfolio run typecheck` — typecheck the portfolio
+- `pnpm --filter @workspace/dope-joe-portfolio run build` — build the portfolio for publishing
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
@@ -22,23 +26,30 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/dope-joe-portfolio/src/App.tsx` — portfolio routes, project data, and page composition
+- `artifacts/dope-joe-portfolio/src/index.css` — shared theme, typography, responsive layout, and motion
+- `artifacts/dope-joe-portfolio/src/components/` — reusable UI primitives from the scaffold
+- `attached_assets/` — uploaded project brief and future media assets
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Phase 1 is intentionally frontend-only with local project content so the portfolio is immediately reviewable and publishable.
+- Wouter provides route-aware home, listing, case study, customization, contact, and fallback pages without adding a heavier router.
+- The customization screen is a functional preview of the future CMS surface; persistence and authentication belong to the next phase.
+- External project links are kept as explicit content data so the case studies remain easy to update.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The site leads with nurse-roster and carestudy-automator, then presents selected web and product work through filterable project cards and detailed case-study routes. It also includes an about page, contact flow, social links, and an admin-style customization preview.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep the portfolio professional, calm, accessible, and centered on health-tech work.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- `nurse-roster` intentionally shows “Live demo pending” because its demo URL was not provided.
+- The full authenticated CMS, media library, scheduling, audit log, and backup workflow are planned follow-up phases; the current customization page is a frontend preview.
 
 ## Pointers
 

@@ -1,0 +1,74 @@
+Build a clean, minimal, highly-professional portfolio website for the developer "Dope-Joe-23" that is focused on health‑tech while still showcasing other projects. Requirements:
+
+1) Tone & brand
+- Professional, modern, trust-inspiring (suitable for health‑tech employers, product teams, or clinical partners).
+- Clean typography, calm color palette, generous whitespace, clear CTAs.
+- Mobile-first responsive design and excellent accessibility (WCAG AA).
+
+2) Core pages & structure
+- Home / Hero: concise tagline, one-line value proposition, 2 CTAs: "View Health Projects" and "Customize / Update Content".
+- About: short professional bio, skills, health‑tech focus, link to resume/CV (PDF).
+- Featured Work (Projects / Case Studies): list of projects with filters/tags (Health, Web, Product, eCommerce). Each project opens to a case study page (see Case Study Template).
+- Customization / Admin: secure content-management interface for adding/updating projects, media, descriptions, write-ups, publish/unpublish, reorder featured items.
+- Media Library: upload/manage images, screenshots, videos, PDFs. Auto image optimization and next-gen formats.
+- Contact: email form (with captcha), links to GitHub, LinkedIn, and live demos.
+- Footer: tech stack, copyright, quick links, small note: "Health‑tech portfolio — available for hire / consulting".
+
+3) Focus & information architecture
+- Default landing highlights health‑tech work (featured project area for nurse-roster and carestudy-automator).
+- Secondary section: other representative projects (spotilite, church-attendance, wig-store, dopecb) with short cards linking to case studies and repos.
+
+4) Project case study template (editable in Admin)
+- Title
+- Tagline (1 line)
+- Role (e.g., Solo developer)
+- Timeline
+- Problem statement (what need it solved)
+- Solution (what you built)
+- Tech stack
+- Key contributions / features (bullet list)
+- Outcomes / metrics / links (demo link, GitHub repo)
+- Gallery/screenshots
+- Downloadable artifacts (PDFs)
+- CTA: "View code" and "Live demo"
+
+5) Admin / Customization page (must haves)
+- Authenticated login (email + password or GitHub OAuth).
+- Projects CRUD: create, read, update, delete; reorder; draft vs published.
+- Rich text editor (Markdown + WYSIWYG preview) for write-ups.
+- Media uploader with drag-and-drop, automatic resizing, thumbnails, and Cloudinary or S3 support.
+- Fields: title, tags, categories, featured flag, date, tech stack (selectable), links (repo/demo), metrics.
+- Live preview and publish scheduling.
+- Simple audit log (who edited what and when).
+- Role-based access: owner + editor.
+- Export/import JSON backup of content.
+- Secure file upload validation and virus scanning integration recommended.
+
+6) Implementation suggestions (minimal and realistic)
+- Frontend: Next.js or SvelteKit for SSR/SSG; Tailwind CSS for quick polished UI.
+- CMS options: headless CMS (Sanity/Strapi/Directus) or a built-in admin using NextAuth + Prisma + Postgres for a lightweight custom admin.
+- Media: Cloudinary or S3 with signed uploads.
+- Hosting: Vercel/Netlify for frontend, Railway/Render/Heroku for backend if needed.
+- SEO & analytics: meta tags, open graph images, Google Analytics / Plausible, sitemap.xml, robots.txt.
+- Security & privacy: CSP, HTTPS, rate limits on upload endpoints.
+- Accessibility: ARIA roles, keyboard navigation, high contrast mode.
+
+7) Deliverables & timeline
+- Phase 1: MVP static site with Home, About, Projects (manual markdown content) and responsive styles.
+- Phase 2: Admin + media library + deploy pipeline.
+- Phase 3: polish, accessibility fixes, SEO, and documentation for content updates.
+
+8) Data to pre-populate the site from the GitHub repos (include repo links and live demos)
+- nurse-roster — Private repo (deployed live). Live demo: [INSERT LIVE URL] — Featured health‑tech rostering/scheduling app for nursing staff (include metrics and screenshots when available).
+- carestudy-automator — TypeScript — https://github.com/Dope-Joe-23/carestudy-automator — (Featured, health‑tech case study)
+- spotilite — JavaScript — https://github.com/Dope-Joe-23/spotilite — https://spotilite-seven.vercel.app
+- church-attendance — JavaScript — https://github.com/Dope-Joe-23/church-attendance — https://church-attendance-wheat.vercel.app
+- wig-store — TypeScript — https://github.com/Dope-Joe-23/wig-store — https://wig-store-seven.vercel.app
+- dopecb — CSS portfolio — https://github.com/Dope-Joe-23/dopecb
+
+9) Final notes for the developer/AI
+- Prioritize nurse-roster and carestudy-automator as lead case studies and design hero copy around clinical scheduling, workflow automation, and safe handling of sensitive data.
+- Keep interactions minimal and intuitive. Admin should let the owner update content without touching code.
+- Provide a short README describing how to update content, add projects, and deploy.
+
+End of brief.
