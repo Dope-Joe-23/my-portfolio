@@ -95,9 +95,58 @@
   .font-display { font-family: var(--app-font-serif); }
   .font-mono-custom { font-family: var(--app-font-mono); }
   .text-balance { text-wrap: balance; }
+  .motion-tap { transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; }
+  .motion-tap:hover { transform: translateY(-1px); filter: brightness(1.02); }
+  .motion-tap:active { transform: translateY(0) scale(.98); }
+  .nav-link {
+    position: relative;
+    transition: color .2s ease, transform .2s ease;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
+  }
+  .nav-link:hover { transform: translateY(-1px); }
+  .nav-link:hover::after,
+  .nav-link[aria-current="page"]::after,
+  .nav-link:hover[aria-current="page"]::after { transform: scaleX(1); }
 }
 
 .site-shell { min-height: 100dvh; overflow: clip; }
+.page-transition-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.page-transition-content {
+  position: relative;
+  z-index: 1;
+}
+.page-wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary) / 0.18) 0%,
+    hsl(var(--primary) / 0.38) 18%,
+    hsl(var(--accent) / 0.24) 52%,
+    hsl(var(--secondary) / 0.12) 100%
+  );
+  filter: blur(2px);
+  box-shadow: 0 0 38px hsl(var(--primary) / 0.06);
+  border-radius: 0 0 2rem 2rem;
+}
 .paper-grid {
   background-image: linear-gradient(to right, rgba(29,69,68,.055) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(29,69,68,.055) 1px, transparent 1px);
@@ -123,10 +172,14 @@
 @keyframes reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 .card-lift { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
 .card-lift:hover { transform: translateY(-5px); box-shadow: var(--shadow-lift); border-color: hsl(var(--primary) / .42); }
+.card-lift:active { transform: translateY(-2px) scale(.995); }
 .link-underline { text-decoration: underline; text-decoration-color: hsl(var(--accent)); text-decoration-thickness: 3px; text-underline-offset: 5px; }
+button, a { -webkit-tap-highlight-color: transparent; }
 .status-dot { width: 8px; height: 8px; border-radius: 999px; background: hsl(var(--accent)); box-shadow: 0 0 0 5px hsl(var(--accent) / .16); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { animation: none; }
   .card-lift { transition: none; }
+  .motion-tap, .nav-link { transition: none; }
+  .page-transition { animation: none !important; }
 }

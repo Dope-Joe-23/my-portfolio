@@ -1,4 +1,5 @@
-import { useState, type CSSProperties, type FormEvent, type ReactNode } from 'react';
+import { useState, useEffect, type CSSProperties, type FormEvent, type ReactNode } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -199,19 +200,19 @@ function Header() {
   return (
     <header className="relative z-20 border-b border-[hsl(var(--border)/.8)] bg-[hsl(var(--background)/.88)] backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link href="/" className="group flex items-center gap-3" data-testid="link-logo">
-          <span className="grid size-9 place-items-center rounded-xl bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] transition-transform group-hover:rotate-6"><HeartPulse size={19} strokeWidth={2.4} /></span>
+        <Link href="/" className="group flex items-center gap-3 motion-tap" data-testid="link-logo">
+          <span className="grid size-9 place-items-center rounded-xl bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105"><HeartPulse size={19} strokeWidth={2.4} /></span>
           <span className="font-mono-custom text-[11px] font-medium uppercase tracking-[.18em] text-[hsl(var(--foreground))]">Joe Nyatefe<span className="text-[hsl(var(--primary))]">.</span></span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
-          {nav.map((item) => <Link key={item.href} href={item.href} className={`text-sm transition-colors hover:text-[hsl(var(--primary))] ${location === item.href ? 'font-semibold text-[hsl(var(--primary))]' : 'text-[hsl(var(--muted-foreground))]'}`} data-testid={`link-nav-${item.label.toLowerCase()}`}>{item.label}</Link>)}
+          {nav.map((item) => <Link key={item.href} href={item.href} className={`nav-link text-sm ${location === item.href ? 'font-semibold text-[hsl(var(--primary))]' : 'text-[hsl(var(--muted-foreground))]'}`} data-testid={`link-nav-${item.label.toLowerCase()}`}>{item.label}</Link>)}
 
         </nav>
-        <button className="grid size-10 place-items-center rounded-full border border-[hsl(var(--border))] md:hidden" onClick={() => setOpen(!open)} aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} data-testid="button-mobile-menu">{open ? <X size={19} /> : <Menu size={19} />}</button>
+        <button className="motion-tap grid size-10 place-items-center rounded-full border border-[hsl(var(--border))] md:hidden" onClick={() => setOpen(!open)} aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} data-testid="button-mobile-menu">{open ? <X size={19} /> : <Menu size={19} />}</button>
       </div>
       {open && <nav className="border-t border-[hsl(var(--border))] px-5 py-4 md:hidden" aria-label="Mobile navigation">
         <div className="flex flex-col gap-1">
-          {nav.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-[hsl(var(--secondary))]" data-testid={`link-mobile-${item.label.toLowerCase()}`}>{item.label}</Link>)}
+          {nav.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="motion-tap rounded-xl px-3 py-3 text-sm font-semibold text-[hsl(var(--foreground))] hover:bg-[hsl(var(--secondary))]" data-testid={`link-mobile-${item.label.toLowerCase()}`}>{item.label}</Link>)}
 
         </div>
       </nav>}
@@ -232,6 +233,44 @@ function Footer() {
 
 function Shell({ children }: { children: ReactNode }) {
   return <div className="site-shell noise"><Header />{children}<Footer /></div>;
+}
+
+function ScrollToTop() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [location]);
+
+  return null;
+}
+
+function AnimatedRoute({ children }: { children: ReactNode }) {
+  const [location] = useLocation();
+
+  return (
+    <motion.div key={location} className="page-transition-shell" initial={false}>
+      <motion.div
+        className="page-wipe"
+        initial={{ x: '-105%', opacity: 1 }}
+        animate={{ x: '105%', opacity: 1 }}
+        exit={{ x: '105%', opacity: 1 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      />
+
+      <motion.div
+        className="page-transition-content"
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
 }
 
 function SectionLabel({ children }: { children: ReactNode }) {
@@ -340,7 +379,38 @@ function ContactPage() {
 }
 
 function Router() {
-  return <ErrorBoundary resetKey={useLocation()[0]}><Switch><Route path="/" component={Home} /><Route path="/about" component={AboutPage} /><Route path="/projects" component={ProjectsPage} /><Route path="/projects/:slug" component={CaseStudyPage} /><Route path="/contact" component={ContactPage} /><Route path="/customize" component={CustomizePage} /><Route component={NotFound} /></Switch></ErrorBoundary>;
+  const [location] = useLocation();
+
+  return (
+    <ErrorBoundary resetKey={location}>
+      <ScrollToTop />
+      <AnimatePresence mode="wait">
+        <Switch>
+          <Route path="/">
+            <AnimatedRoute><Home /></AnimatedRoute>
+          </Route>
+          <Route path="/about">
+            <AnimatedRoute><AboutPage /></AnimatedRoute>
+          </Route>
+          <Route path="/projects">
+            <AnimatedRoute><ProjectsPage /></AnimatedRoute>
+          </Route>
+          <Route path="/projects/:slug">
+            <AnimatedRoute><CaseStudyPage /></AnimatedRoute>
+          </Route>
+          <Route path="/contact">
+            <AnimatedRoute><ContactPage /></AnimatedRoute>
+          </Route>
+          <Route path="/customize">
+            <AnimatedRoute><CustomizePage /></AnimatedRoute>
+          </Route>
+          <Route>
+            <AnimatedRoute><NotFound /></AnimatedRoute>
+          </Route>
+        </Switch>
+      </AnimatePresence>
+    </ErrorBoundary>
+  );
 }
 
 function App() {
