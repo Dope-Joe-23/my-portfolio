@@ -40,7 +40,7 @@ A health-tech-focused developer portfolio for showcasing clinical workflow produ
 
 ## Product
 
-The site leads with nurse-roster and carestudy-automator, then presents selected web and product work through filterable project cards and detailed case-study routes. It also includes an about page, contact flow, social links, and an admin-style customization preview.
+The site leads with Dutyschedula and carestudy-automator, then presents selected web and product work through filterable project cards and detailed case-study routes. It also includes an about page, contact flow, social links, and an admin-style customization preview.
 
 ## User preferences
 
@@ -48,7 +48,7 @@ The site leads with nurse-roster and carestudy-automator, then presents selected
 
 ## Gotchas
 
-- `nurse-roster` intentionally shows “Live demo pending” because its demo URL was not provided.
+- `dutyschedula` (formerly nurse-roster) is now linked to its live demo at https://nurse-roster-peach.vercel.app/.
 - The full authenticated CMS, media library, scheduling, audit log, and backup workflow are planned follow-up phases; the current customization page is a frontend preview.
 
 ## Pointers

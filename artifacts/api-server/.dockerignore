@@ -1,0 +1,42 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build artifacts (rebuilt inside container)
+dist
+
+# IDE / Editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Replit specific
+.replit
+.replitignore
+
+# Test files
+*.test.*
+*.spec.*
+__tests__
+
+# Documentation
+*.md
+LICENSE
+
+# Environment files (secrets injected by Render)
+.env
+.env.*
+!.env.example
+
+# Assets not needed by API
+attached_assets

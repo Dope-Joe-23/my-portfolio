@@ -55,12 +55,13 @@ type Project = {
   challenge: string;
   approach: string;
   learnings: string[];
+  screenshots?: string[];
 };
 
 const projects: Project[] = [
   {
-    slug: 'nurse-roster',
-    name: 'Nurse Roster',
+    slug: 'dutyschedula',
+    name: 'Dutyschedula',
     kicker: 'Health-tech · workflow tooling',
     description: 'A calmer way for charge nurses to build coverage they can stand behind.',
     longDescription: 'A scheduling workspace that turns a fragile handoff into a shared, auditable plan for the whole unit.',
@@ -68,7 +69,7 @@ const projects: Project[] = [
     accent: 'coral',
     featured: true,
     health: true,
-    demoLabel: 'Live demo pending',
+    demo: 'https://nurse-roster-peach.vercel.app/',
     role: 'Product engineer · end to end',
     year: '2024 — now',
     outcome: 'Less coordination overhead at the start of a shift.',
@@ -76,6 +77,7 @@ const projects: Project[] = [
     challenge: 'Roster changes happen under pressure. Existing tools often make the person coordinating coverage carry the entire mental model in their head.',
     approach: 'I designed around the moment of decision: show staffing gaps early, make constraints legible, and preserve a history of why a shift changed. The interface is intentionally quiet so the important signal can surface.',
     learnings: ['Make the exception visible before the plan.', 'A good clinical workflow tool explains itself in one glance.', 'Private pilots need trust signals as much as feature depth.'],
+    screenshots: ['/dutyschedula-screenshot.png'],
   },
   {
     slug: 'carestudy-automator',
@@ -95,6 +97,45 @@ const projects: Project[] = [
     challenge: 'Clinical learning is rich, but documenting it can become another administrative task. The product needed to provide structure without flattening the story.',
     approach: 'I treated the case study like a guided conversation: context first, then the decision points, then reflection. Small progressive disclosures keep the author moving while keeping the final artifact clear.',
     learnings: ['Structure should support expertise, not perform it.', 'Good forms have a rhythm: orient, ask, reassure.', 'The fastest path is often the one with the best defaults.'],
+    screenshots: ['/carestudy-screenshot.png'],
+  },
+  {
+    slug: 'church-attendance',
+    name: 'Churchin',
+    kicker: 'Operations · attendance tracking',
+    description: 'A digital solution for tracking attendance and engaging the Wesleyan community across Sunyani.',
+    longDescription: 'Serving the Wesleyan community across Sunyani and its surrounding areas — a digital solution for tracking attendance, engaging members, and strengthening the congregation.',
+    language: 'JavaScript',
+    accent: 'violet',
+    repo: 'https://github.com/Dope-Joe-23/church-attendance',
+    demo: 'https://church-attendance-wheat.vercel.app',
+    role: 'Frontend engineer',
+    year: '2023',
+    outcome: 'A faster weekly check-in with fewer moving parts.',
+    tags: ['JavaScript', 'Operations', 'Community'],
+    screenshots: ['/wis-sunyani-screenshot.png'],
+    challenge: 'The task is repetitive, but not unimportant. The tool had to be quick for regulars and understandable for anyone stepping in to help.',
+    approach: 'I simplified the surface area to the handful of actions that happen every week and gave the records a clear visual home. The product works because it does not ask for attention it does not need.',
+    learnings: ['Reliability is a feature people feel.', 'The common path should be obvious without training.', 'Respect recurring work with good defaults.'],
+  },
+  {
+    slug: 'wig-store',
+    name: 'Wiggle',
+    kicker: 'Commerce · product browsing',
+    description: 'A premium wig storefront with enough character to make browsing feel personal.',
+    longDescription: 'A commerce interface exploring confidence, comparison, and a warmer path to purchase — premium quality wigs that bring out natural beauty.',
+    language: 'TypeScript',
+    accent: 'pink',
+    repo: 'https://github.com/Dope-Joe-23/wig-store',
+    demo: 'https://wig-store-seven.vercel.app',
+    role: 'Frontend engineer',
+    year: '2023',
+    screenshots: ['/wig-store-screenshot.png'],
+    outcome: 'More useful product comparison without adding noise.',
+    tags: ['TypeScript', 'Commerce', 'Responsive UI'],
+    challenge: 'Product confidence is difficult to build through a grid of thumbnails. Shoppers need useful details without losing the feeling of possibility.',
+    approach: 'I gave product details room to breathe, paired comparison with strong imagery, and used a softer visual system to make the path to purchase feel considered.',
+    learnings: ['Product pages are part reassurance, part imagination.', 'Responsive design is an editorial decision.', 'Details earn their place when they answer a real hesitation.'],
   },
   {
     slug: 'spotilite',
@@ -113,42 +154,6 @@ const projects: Project[] = [
     challenge: 'Music apps can make exploration feel like catalog management. Spotilite needed a more immediate sense of movement and reward.',
     approach: 'I used large cover moments, quick filtering, and a deliberate content cadence to keep the eye moving. The visual language is more editorial than dashboard-like.',
     learnings: ['A little constraint gives discovery its spark.', 'Motion should clarify where to look next.', 'A small product can still have a point of view.'],
-  },
-  {
-    slug: 'church-attendance',
-    name: 'Church Attendance',
-    kicker: 'Operations · attendance tracking',
-    description: 'A straightforward record of who showed up, built for busy weekly rhythms.',
-    longDescription: 'A JavaScript attendance tool that keeps recurring operations clear and approachable.',
-    language: 'JavaScript',
-    accent: 'violet',
-    repo: 'https://github.com/Dope-Joe-23/church-attendance',
-    demo: 'https://church-attendance-wheat.vercel.app',
-    role: 'Frontend engineer',
-    year: '2023',
-    outcome: 'A faster weekly check-in with fewer moving parts.',
-    tags: ['JavaScript', 'Operations', 'Forms'],
-    challenge: 'The task is repetitive, but not unimportant. The tool had to be quick for regulars and understandable for anyone stepping in to help.',
-    approach: 'I simplified the surface area to the handful of actions that happen every week and gave the records a clear visual home. The product works because it does not ask for attention it does not need.',
-    learnings: ['Reliability is a feature people feel.', 'The common path should be obvious without training.', 'Respect recurring work with good defaults.'],
-  },
-  {
-    slug: 'wig-store',
-    name: 'Wig Store',
-    kicker: 'Commerce · product browsing',
-    description: 'A tactile TypeScript storefront with enough character to make browsing feel personal.',
-    longDescription: 'A commerce interface exploring confidence, comparison, and a warmer path to purchase.',
-    language: 'TypeScript',
-    accent: 'pink',
-    repo: 'https://github.com/Dope-Joe-23/wig-store',
-    demo: 'https://wig-store-seven.vercel.app',
-    role: 'Frontend engineer',
-    year: '2023',
-    outcome: 'More useful product comparison without adding noise.',
-    tags: ['TypeScript', 'Commerce', 'Responsive UI'],
-    challenge: 'Product confidence is difficult to build through a grid of thumbnails. Shoppers need useful details without losing the feeling of possibility.',
-    approach: 'I gave product details room to breathe, paired comparison with strong imagery, and used a softer visual system to make the path to purchase feel considered.',
-    learnings: ['Product pages are part reassurance, part imagination.', 'Responsive design is an editorial decision.', 'Details earn their place when they answer a real hesitation.'],
   },
   {
     slug: 'dopecb',
@@ -196,18 +201,18 @@ function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8">
         <Link href="/" className="group flex items-center gap-3" data-testid="link-logo">
           <span className="grid size-9 place-items-center rounded-xl bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] transition-transform group-hover:rotate-6"><HeartPulse size={19} strokeWidth={2.4} /></span>
-          <span className="font-mono-custom text-[11px] font-medium uppercase tracking-[.18em] text-[hsl(var(--foreground))]">Dope-Joe-23<span className="text-[hsl(var(--primary))]">.</span></span>
+          <span className="font-mono-custom text-[11px] font-medium uppercase tracking-[.18em] text-[hsl(var(--foreground))]">Joe Nyatefe<span className="text-[hsl(var(--primary))]">.</span></span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
           {nav.map((item) => <Link key={item.href} href={item.href} className={`text-sm transition-colors hover:text-[hsl(var(--primary))] ${location === item.href ? 'font-semibold text-[hsl(var(--primary))]' : 'text-[hsl(var(--muted-foreground))]'}`} data-testid={`link-nav-${item.label.toLowerCase()}`}>{item.label}</Link>)}
-          <Link href="/customize" className="rounded-full border border-[hsl(var(--primary)/.35)] px-4 py-2 text-sm font-semibold text-[hsl(var(--primary))] transition-colors hover:bg-[hsl(var(--secondary))]" data-testid="link-nav-customize">Customize / Update Content</Link>
+
         </nav>
         <button className="grid size-10 place-items-center rounded-full border border-[hsl(var(--border))] md:hidden" onClick={() => setOpen(!open)} aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} data-testid="button-mobile-menu">{open ? <X size={19} /> : <Menu size={19} />}</button>
       </div>
       {open && <nav className="border-t border-[hsl(var(--border))] px-5 py-4 md:hidden" aria-label="Mobile navigation">
         <div className="flex flex-col gap-1">
           {nav.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-[hsl(var(--secondary))]" data-testid={`link-mobile-${item.label.toLowerCase()}`}>{item.label}</Link>)}
-          <Link href="/customize" onClick={() => setOpen(false)} className="mt-2 rounded-xl bg-[hsl(var(--primary))] px-3 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))]" data-testid="link-mobile-customize">Customize / Update Content</Link>
+
         </div>
       </nav>}
     </header>
@@ -217,11 +222,11 @@ function Header() {
 function Footer() {
   return <footer className="mt-24 border-t border-[hsl(var(--border))] bg-[hsl(var(--secondary)/.35)]">
     <div className="mx-auto grid max-w-6xl gap-12 px-5 py-12 lg:grid-cols-[1.3fr_1fr_1fr] lg:px-8">
-      <div><div className="mb-4 flex items-center gap-3"><span className="grid size-8 place-items-center rounded-lg bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]"><HeartPulse size={16} /></span><span className="font-mono-custom text-xs uppercase tracking-[.16em]">Dope-Joe-23</span></div><p className="max-w-xs text-sm leading-6 text-[hsl(var(--muted-foreground))]">Product-minded engineering for the places where software meets real life.</p></div>
+      <div><div className="mb-4 flex items-center gap-3"><span className="grid size-8 place-items-center rounded-lg bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]"><HeartPulse size={16} /></span><span className="font-mono-custom text-xs uppercase tracking-[.16em]">Joe Nyatefe</span></div><p className="max-w-xs text-sm leading-6 text-[hsl(var(--muted-foreground))]">Product-minded engineering for the places where software meets real life.</p></div>
       <div><p className="mb-4 font-mono-custom text-[10px] uppercase tracking-[.18em] text-[hsl(var(--muted-foreground))]">Explore</p><div className="flex flex-col gap-3 text-sm"><TextLink href="/projects">Projects</TextLink><TextLink href="/about">About the practice</TextLink><TextLink href="/contact">Start a conversation</TextLink></div></div>
       <div><p className="mb-4 font-mono-custom text-[10px] uppercase tracking-[.18em] text-[hsl(var(--muted-foreground))]">Availability</p><p className="text-sm leading-6">Open to health-tech roles, thoughtful product teams, and select consulting.</p><a href="mailto:hello@dopejoe23.dev" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[hsl(var(--primary))]" data-testid="link-footer-email"><Mail size={15} />hello@dopejoe23.dev</a></div>
     </div>
-    <div className="mx-auto flex max-w-6xl flex-col gap-3 border-t border-[hsl(var(--border))] px-5 py-5 text-xs text-[hsl(var(--muted-foreground))] md:flex-row md:items-center md:justify-between lg:px-8"><span>Health-tech portfolio — available for hire / consulting</span><span className="font-mono-custom">© {new Date().getFullYear()} Dope-Joe-23</span></div>
+    <div className="mx-auto flex max-w-6xl flex-col gap-3 border-t border-[hsl(var(--border))] px-5 py-5 text-xs text-[hsl(var(--muted-foreground))] md:flex-row md:items-center md:justify-between lg:px-8"><span>Health-tech portfolio — available for hire / consulting</span><span className="font-mono-custom">© {new Date().getFullYear()} Joe Nyatefe</span></div>
   </footer>;
 }
 
@@ -235,6 +240,11 @@ function SectionLabel({ children }: { children: ReactNode }) {
 
 function ProjectVisual({ project, compact = false }: { project: Project; compact?: boolean }) {
   const accent = project.accent === 'coral' ? '#E98468' : project.accent === 'yellow' ? '#F3C46B' : project.accent === 'violet' ? '#9D9ADF' : project.accent === 'pink' ? '#D993A8' : project.accent === 'blue' ? '#82A9C7' : '#54B7AA';
+  if (project.screenshots && project.screenshots.length > 0) {
+    return <div className={`relative overflow-hidden rounded-[1.25rem] bg-[hsl(var(--secondary))] ${compact ? 'h-48' : ''}`}>
+      <img src={project.screenshots[0]} alt={`${project.name} screenshot`} className="w-full h-auto" loading="lazy" />
+    </div>;
+  }
   return <div className={`relative overflow-hidden rounded-[1.25rem] bg-[#e5ece7] ${compact ? 'h-48' : 'min-h-[350px] md:min-h-[450px]'}`} style={{ '--project-accent': accent } as CSSProperties}>
     <div className="absolute inset-0 opacity-60" style={{ background: `radial-gradient(circle at 76% 18%, ${accent} 0%, transparent 32%), radial-gradient(circle at 15% 80%, #b7d4cc 0%, transparent 34%)` }} />
     <div className="absolute -right-20 -top-24 size-72 rounded-full border-[34px] border-[var(--project-accent)] opacity-30" />
@@ -259,15 +269,17 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
 }
 
 function HeroVisual() {
-  return <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] bg-[#174e4b] p-5 text-[#f4f0e5] shadow-[var(--shadow-lift)] md:min-h-[550px] md:p-8">
-    <div className="absolute -right-24 -top-24 size-80 rounded-full border-[38px] border-[#f3c46b]/35" /><div className="absolute -bottom-20 -left-16 size-60 rounded-full bg-[#368f86]/60 blur-2xl" />
-    <div className="relative z-10 flex h-full min-h-[390px] flex-col justify-between md:min-h-[490px]">
-      <div className="flex items-center justify-between"><span className="font-mono-custom text-[10px] uppercase tracking-[.18em] text-[#b9d3ca]">a small system for care</span><span className="flex items-center gap-2 font-mono-custom text-[10px] text-[#f3c46b]"><span className="status-dot" />thinking in public</span></div>
-      <div className="relative mx-auto w-full max-w-[430px]">
-        <div className="absolute -left-2 top-8 h-32 w-20 rounded-2xl border border-[#b9d3ca]/30 bg-[#2b6f69]/80 p-3 backdrop-blur md:-left-10"><div className="mb-4 h-2 w-8 rounded-full bg-[#f3c46b]" /><div className="space-y-2"><div className="h-1.5 w-12 rounded-full bg-[#b9d3ca]/50" /><div className="h-1.5 w-9 rounded-full bg-[#b9d3ca]/30" /><div className="h-1.5 w-11 rounded-full bg-[#b9d3ca]/30" /></div></div>
-        <div className="rounded-[1.4rem] border border-[#b9d3ca]/25 bg-[#f4f0e5] p-3 text-[#174e4b] shadow-2xl md:p-4"><div className="flex items-center justify-between border-b border-[#174e4b]/10 pb-3"><div className="flex items-center gap-2"><HeartPulse size={15} /><span className="font-mono-custom text-[9px] uppercase tracking-widest">nurse roster</span></div><span className="rounded-full bg-[#d9ebe4] px-2 py-1 font-mono-custom text-[8px]">unit 04</span></div><div className="grid grid-cols-[.8fr_1.2fr] gap-3 py-4"><div className="rounded-xl bg-[#dcebe5] p-3"><span className="font-mono-custom text-[8px] uppercase text-[#52716b]">today's cover</span><div className="mt-2 font-display text-5xl">94<span className="text-2xl">%</span></div><div className="mt-3 h-2 rounded-full bg-[#b7d4c9]"><div className="h-full w-[94%] rounded-full bg-[#368f86]" /></div></div><div className="space-y-2">{['M. Okafor / 07:00', 'A. Chen / 15:00', 'J. Brown / 23:00'].map((name, index) => <div key={name} className="flex items-center justify-between rounded-lg border border-[#174e4b]/10 bg-white/70 px-2.5 py-2"><span className="text-[9px] font-medium">{name}</span><span className={`size-2 rounded-full ${index === 1 ? 'bg-[#e98468]' : 'bg-[#54b7aa]'}`} /></div>)}</div></div><div className="mt-1 flex items-center justify-between rounded-xl bg-[#e98468] px-3 py-2 text-[10px] font-semibold text-[#174e4b]"><span>One open shift needs attention</span><ArrowRight size={14} /></div></div>
+  return <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] shadow-[var(--shadow-lift)] md:min-h-[550px]">
+    <img src="/hero-portrait.jpg" alt="Joe Nyatefe — portrait" className="absolute inset-0 h-full w-full object-cover" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#174e4b]/90 via-[#174e4b]/40 to-transparent" />
+    <div className="relative z-10 flex h-full min-h-[430px] flex-col justify-end p-5 md:min-h-[550px] md:p-8">
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <p className="font-mono-custom text-[10px] uppercase tracking-[.18em] text-[#b9d3ca]">Joe Nyatefe</p>
+          <p className="mt-2 max-w-[280px] text-sm leading-5 text-[#f4f0e5]">Interfaces for the handoffs, decisions, and human moments that make care work.</p>
+        </div>
+        <span className="font-display text-6xl leading-none text-[#f3c46b] md:text-8xl">23</span>
       </div>
-      <div className="flex items-end justify-between gap-4"><p className="max-w-[220px] text-sm leading-5 text-[#b9d3ca]">Interfaces for the handoffs, decisions, and human moments that make care work.</p><span className="font-display text-6xl leading-none text-[#f3c46b] md:text-8xl">23</span></div>
     </div>
   </div>;
 }
@@ -277,7 +289,7 @@ function Home() {
     <main>
       <section className="paper-grid relative">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-20 pt-16 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:gap-16 lg:px-8 lg:pb-28 lg:pt-24">
-          <div className="reveal"><SectionLabel>Product engineer · health-tech curious</SectionLabel><h1 className="max-w-xl font-display text-6xl leading-[.92] tracking-[-.03em] md:text-8xl">Make care<br /><em className="text-[hsl(var(--primary))]">easier to move</em><br />through.</h1><p className="mt-7 max-w-md text-base leading-7 text-[hsl(var(--muted-foreground))]">I’m Dope-Joe-23 — a developer building thoughtful software for the people carrying care, coordination, and too many tabs.</p><div className="mt-8 flex flex-wrap gap-3"><PrimaryButton href="/projects">View Health Projects</PrimaryButton><Link href="/customize" className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card)/.45)] px-5 py-3 text-sm font-semibold transition-colors hover:bg-[hsl(var(--secondary))]" data-testid="link-hero-customize">Customize / Update Content <Pencil size={15} /></Link></div><div className="mt-12 flex items-center gap-4 border-t border-[hsl(var(--border))] pt-5"><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Currently exploring</span><span className="text-sm font-semibold">clinical workflow tooling</span></div></div>
+          <div className="reveal"><SectionLabel>Product engineer · health-tech curious</SectionLabel><h1 className="max-w-xl font-display text-6xl leading-[.92] tracking-[-.03em] md:text-8xl">Make care<br /><em className="text-[hsl(var(--primary))]">easier to move</em><br />through.</h1><p className="mt-7 max-w-md text-base leading-7 text-[hsl(var(--muted-foreground))]">I’m Joe Nyatefe — a developer building thoughtful software for the people carrying care, coordination, and too many tabs.</p><div className="mt-8 flex flex-wrap gap-3"><PrimaryButton href="/projects">View Health Projects</PrimaryButton></div><div className="mt-12 flex items-center gap-4 border-t border-[hsl(var(--border))] pt-5"><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Currently exploring</span><span className="text-sm font-semibold">clinical workflow tooling</span></div></div>
           <div className="reveal reveal-delay-2"><HeroVisual /></div>
         </div>
         <div className="mx-auto grid max-w-6xl grid-cols-2 border-t border-[hsl(var(--border))] px-5 py-8 md:grid-cols-4 lg:px-8"><div><div className="font-display text-4xl text-[hsl(var(--primary))]">06</div><p className="mt-1 text-xs text-[hsl(var(--muted-foreground))]">selected builds</p></div><div><div className="font-display text-4xl text-[hsl(var(--primary))]">02</div><p className="mt-1 text-xs text-[hsl(var(--muted-foreground))]">health-tech studies</p></div><div className="mt-5 md:mt-0"><div className="font-display text-4xl text-[hsl(var(--primary))]">∞</div><p className="mt-1 text-xs text-[hsl(var(--muted-foreground))]">questions worth asking</p></div><div className="mt-5 md:mt-0"><div className="font-display text-4xl text-[hsl(var(--primary))]">23</div><p className="mt-1 text-xs text-[hsl(var(--muted-foreground))]">a name, not a brand wall</p></div></div>
@@ -310,7 +322,7 @@ function CaseStudyPage() {
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((item) => item.slug === slug);
   if (!project) return <NotFound />;
-  return <Shell><main><div className="mx-auto max-w-6xl px-5 pt-10 lg:px-8 lg:pt-14"><Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))]" data-testid="link-back-projects"><ArrowLeft size={15} />All projects</Link></div><section className="mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-12 lg:grid-cols-[.82fr_1.18fr] lg:items-end lg:px-8 lg:pb-24 lg:pt-16"><div><SectionLabel>{project.kicker}</SectionLabel><h1 className="font-display text-7xl leading-[.87] md:text-9xl">{project.name}</h1><p className="mt-7 max-w-md text-base leading-7 text-[hsl(var(--muted-foreground))]">{project.longDescription}</p><div className="mt-8 flex flex-wrap gap-3">{project.repo && <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--primary))] px-5 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))]" data-testid={`link-case-repo-${project.slug}`}><Github size={16} />View repository <ExternalLink size={14} /></a>}{project.demo ? <a href={project.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] px-5 py-3 text-sm font-semibold" data-testid={`link-case-demo-${project.slug}`}>Open live demo <ExternalLink size={14} /></a> : project.demoLabel && <span className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] px-5 py-3 text-sm font-semibold text-[hsl(var(--muted-foreground))]"><Clock3 size={15} />{project.demoLabel}</span>}</div></div><ProjectVisual project={project} /></section><section className="border-y border-[hsl(var(--border))] bg-[hsl(var(--secondary)/.35)]"><div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-8 px-5 py-8 md:grid-cols-4 lg:px-8"><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Role</span><p className="mt-2 text-sm font-semibold">{project.role}</p></div><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Built</span><p className="mt-2 text-sm font-semibold">{project.language}</p></div><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Timeline</span><p className="mt-2 text-sm font-semibold">{project.year}</p></div><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Outcome</span><p className="mt-2 text-sm font-semibold">{project.outcome}</p></div></div></section><section className="mx-auto grid max-w-6xl gap-14 px-5 py-16 lg:grid-cols-[.7fr_1.3fr] lg:px-8 lg:py-24"><div><SectionLabel>Inside the build</SectionLabel><p className="max-w-xs text-sm leading-6 text-[hsl(var(--muted-foreground))]">A closer look at the question, the shape of the solution, and what stayed with me.</p><div className="mt-12 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-[hsl(var(--secondary))] px-3 py-1.5 text-xs font-semibold">{tag}</span>)}</div></div><div className="space-y-14"><div><h2 className="font-display text-4xl md:text-5xl">The friction</h2><p className="mt-4 max-w-2xl text-base leading-8 text-[hsl(var(--muted-foreground))]">{project.challenge}</p></div><div><h2 className="font-display text-4xl md:text-5xl">The approach</h2><p className="mt-4 max-w-2xl text-base leading-8 text-[hsl(var(--muted-foreground))]">{project.approach}</p></div><div className="rounded-2xl border-l-4 border-[hsl(var(--accent))] bg-[hsl(var(--secondary)/.5)] p-6"><p className="mb-4 font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--primary))]">What stayed with me</p><ul className="space-y-3">{project.learnings.map((learning) => <li key={learning} className="flex gap-3 text-sm leading-6"><Check size={16} className="mt-1 shrink-0 text-[hsl(var(--primary))]" />{learning}</li>)}</ul></div></div></section><section className="mx-auto max-w-6xl px-5 lg:px-8"><div className="flex flex-col items-start justify-between gap-5 rounded-[1.5rem] bg-[hsl(var(--primary))] p-7 text-[hsl(var(--primary-foreground))] md:flex-row md:items-center md:p-10"><div><p className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--accent))]">Keep exploring</p><h2 className="mt-3 font-display text-4xl">There’s more in the notebook.</h2></div><Link href="/projects" className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--accent))] px-5 py-3 text-sm font-semibold text-[hsl(var(--foreground))]" data-testid="link-case-all-projects">Browse all work <ArrowRight size={16} /></Link></div></section></main></Shell>;
+  return <Shell><main><div className="mx-auto max-w-6xl px-5 pt-10 lg:px-8 lg:pt-14"><Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))]" data-testid="link-back-projects"><ArrowLeft size={15} />All projects</Link></div><section className="mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-12 lg:grid-cols-[.82fr_1.18fr] lg:items-end lg:px-8 lg:pb-24 lg:pt-16"><div><SectionLabel>{project.kicker}</SectionLabel><h1 className="font-display text-7xl leading-[.87] md:text-9xl">{project.name}</h1><p className="mt-7 max-w-md text-base leading-7 text-[hsl(var(--muted-foreground))]">{project.longDescription}</p><div className="mt-8 flex flex-wrap gap-3">{project.repo && <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--primary))] px-5 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))]" data-testid={`link-case-repo-${project.slug}`}><Github size={16} />View repository <ExternalLink size={14} /></a>}{project.demo ? <a href={project.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] px-5 py-3 text-sm font-semibold" data-testid={`link-case-demo-${project.slug}`}>Open live demo <ExternalLink size={14} /></a> : project.demoLabel && <span className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] px-5 py-3 text-sm font-semibold text-[hsl(var(--muted-foreground))]"><Clock3 size={15} />{project.demoLabel}</span>}</div></div><ProjectVisual project={project} /></section><section className="border-y border-[hsl(var(--border))] bg-[hsl(var(--secondary)/.35)]"><div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-8 px-5 py-8 md:grid-cols-4 lg:px-8"><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Role</span><p className="mt-2 text-sm font-semibold">{project.role}</p></div><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Built</span><p className="mt-2 text-sm font-semibold">{project.language}</p></div><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Timeline</span><p className="mt-2 text-sm font-semibold">{project.year}</p></div><div><span className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Outcome</span><p className="mt-2 text-sm font-semibold">{project.outcome}</p></div></div></section><section className="mx-auto grid max-w-6xl gap-14 px-5 py-16 lg:grid-cols-[.7fr_1.3fr] lg:px-8 lg:py-24"><div><SectionLabel>Inside the build</SectionLabel><p className="max-w-xs text-sm leading-6 text-[hsl(var(--muted-foreground))]">A closer look at the question, the shape of the solution, and what stayed with me.</p><div className="mt-12 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-[hsl(var(--secondary))] px-3 py-1.5 text-xs font-semibold">{tag}</span>)}</div></div><div className="space-y-14"><div><h2 className="font-display text-4xl md:text-5xl">The friction</h2><p className="mt-4 max-w-2xl text-base leading-8 text-[hsl(var(--muted-foreground))]">{project.challenge}</p></div><div><h2 className="font-display text-4xl md:text-5xl">The approach</h2><p className="mt-4 max-w-2xl text-base leading-8 text-[hsl(var(--muted-foreground))]">{project.approach}</p></div><div className="rounded-2xl border-l-4 border-[hsl(var(--accent))] bg-[hsl(var(--secondary)/.5)] p-6"><p className="mb-4 font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--primary))]">What stayed with me</p><ul className="space-y-3">{project.learnings.map((learning) => <li key={learning} className="flex gap-3 text-sm leading-6"><Check size={16} className="mt-1 shrink-0 text-[hsl(var(--primary))]" />{learning}</li>)}</ul></div></div></section>{project.screenshots && project.screenshots.length > 0 && <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-20"><SectionLabel>Screenshots</SectionLabel><div className="grid gap-6 md:grid-cols-2">{project.screenshots.map((src, i) => <div key={i} className="overflow-hidden rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--secondary)/.3)]"><img src={src} alt={`${project.name} screenshot ${i + 1}`} className="w-full object-cover" loading="lazy" /></div>)}</div></section>}<section className="mx-auto max-w-6xl px-5 lg:px-8"><div className="flex flex-col items-start justify-between gap-5 rounded-[1.5rem] bg-[hsl(var(--primary))] p-7 text-[hsl(var(--primary-foreground))] md:flex-row md:items-center md:p-10"><div><p className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--accent))]">Keep exploring</p><h2 className="mt-3 font-display text-4xl">There’s more in the notebook.</h2></div><Link href="/projects" className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--accent))] px-5 py-3 text-sm font-semibold text-[hsl(var(--foreground))]" data-testid="link-case-all-projects">Browse all work <ArrowRight size={16} /></Link></div></section></main></Shell>;
 }
 
 function CustomizePage() {
@@ -318,7 +330,7 @@ function CustomizePage() {
   const [saved, setSaved] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
   const editableSections = ['Homepage hero', 'Featured work', 'About snippet', 'Availability'];
-  return <Shell><main><PageIntro eyebrow="Customize / content preview" title={<>A small window<br />into the <em className="text-[hsl(var(--primary))]">next version.</em></>} copy="This admin-style preview shows how future CMS controls could keep the portfolio current without losing its voice." /><section className="mx-auto max-w-6xl px-5 py-12 lg:px-8 lg:py-16"><div className="overflow-hidden rounded-[1.5rem] border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-[var(--shadow-soft)]"><div className="flex flex-col gap-4 border-b border-[hsl(var(--border))] bg-[hsl(var(--secondary)/.45)] p-4 md:flex-row md:items-center md:justify-between md:px-6"><div className="flex items-center gap-3"><div className="grid size-9 place-items-center rounded-lg bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]"><LayoutDashboard size={17} /></div><div><p className="text-sm font-semibold">Portfolio content studio</p><p className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Dope-Joe-23 / homepage</p></div></div><div className="flex items-center gap-2"><div className="flex rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-1">{[['live', 'Published'], ['draft', 'Draft preview']].map(([value, label]) => <button key={value} onClick={() => setPreviewMode(value as 'live' | 'draft')} className={`rounded-full px-3 py-1.5 text-xs font-semibold ${previewMode === value ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]' : ''}`} aria-pressed={previewMode === value} data-testid={`button-preview-${value}`}>{label}</button>)}</div><button onClick={() => setSaved(true)} className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--accent))] px-4 py-2 text-xs font-bold" data-testid="button-save-content">{saved ? <Check size={14} /> : <Sparkles size={14} />}{saved ? 'Saved locally' : 'Save changes'}</button></div></div><div className="grid lg:grid-cols-[220px_1fr]"><aside className="border-b border-[hsl(var(--border))] p-4 lg:border-b-0 lg:border-r lg:p-5"><p className="mb-3 px-2 font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Sections</p>{editableSections.map((item, index) => <button key={item} onClick={() => setActiveSection(index)} className={`flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm ${activeSection === index ? 'bg-[hsl(var(--secondary))] font-semibold' : 'text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--secondary)/.6)]'}`} data-testid={`button-section-${index}`}>{activeSection === index ? <Pencil size={14} className="text-[hsl(var(--primary))]" /> : <Circle size={8} className="ml-1 mr-1" />}{item}<ChevronRight size={14} className="ml-auto" /></button>)}</aside><div className="grid gap-8 p-5 md:p-8 xl:grid-cols-[1fr_330px]"><div><div className="mb-6 flex items-center justify-between"><div><p className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--primary))]">Editing {editableSections[activeSection].toLowerCase()}</p><h2 className="mt-2 font-display text-4xl">Make care easier to move through.</h2></div><span className="rounded-full bg-[hsl(var(--secondary))] px-3 py-1 font-mono-custom text-[10px]">{previewMode === 'live' ? 'LIVE' : 'DRAFT'}</span></div><div className="space-y-5"><label className="block"><span className="mb-2 block text-xs font-semibold">Eyebrow</span><input defaultValue="Product engineer · health-tech curious" className="w-full rounded-lg border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-3 text-sm" data-testid="input-customize-eyebrow" /></label><label className="block"><span className="mb-2 block text-xs font-semibold">Headline</span><textarea defaultValue="Make care easier to move through." rows={3} className="w-full resize-none rounded-lg border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-3 text-sm leading-6" data-testid="input-customize-headline" /></label><label className="block"><span className="mb-2 block text-xs font-semibold">Supporting copy</span><textarea defaultValue="Interfaces for the handoffs, decisions, and human moments that make care work." rows={4} className="w-full resize-none rounded-lg border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-3 text-sm leading-6" data-testid="input-customize-copy" /></label></div></div><div className="rounded-2xl bg-[#174e4b] p-5 text-[#f4f0e5]"><div className="mb-5 flex items-center justify-between"><span className="font-mono-custom text-[9px] uppercase tracking-widest text-[#b9d3ca]">Preview</span><Eye size={15} className="text-[#f3c46b]" /></div><div className="rounded-xl bg-[#f4f0e5] p-4 text-[#174e4b]"><span className="font-mono-custom text-[8px] uppercase tracking-widest">Product engineer · health-tech curious</span><p className="mt-8 font-display text-4xl leading-[.92]">Make care<br /><em className="text-[#368f86]">easier to move</em><br />through.</p><div className="mt-7 h-2 w-24 rounded-full bg-[#e98468]" /></div><p className="mt-5 text-xs leading-5 text-[#b9d3ca]">Changes are preview-only for now. Your future CMS can connect this panel to a publishing workflow.</p></div></div></div></div></section></main></Shell>;
+  return <Shell><main><PageIntro eyebrow="Customize / content preview" title={<>A small window<br />into the <em className="text-[hsl(var(--primary))]">next version.</em></>} copy="This admin-style preview shows how future CMS controls could keep the portfolio current without losing its voice." /><section className="mx-auto max-w-6xl px-5 py-12 lg:px-8 lg:py-16"><div className="overflow-hidden rounded-[1.5rem] border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-[var(--shadow-soft)]"><div className="flex flex-col gap-4 border-b border-[hsl(var(--border))] bg-[hsl(var(--secondary)/.45)] p-4 md:flex-row md:items-center md:justify-between md:px-6"><div className="flex items-center gap-3"><div className="grid size-9 place-items-center rounded-lg bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]"><LayoutDashboard size={17} /></div><div><p className="text-sm font-semibold">Portfolio content studio</p><p className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Joe Nyatefe / homepage</p></div></div><div className="flex items-center gap-2"><div className="flex rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-1">{[['live', 'Published'], ['draft', 'Draft preview']].map(([value, label]) => <button key={value} onClick={() => setPreviewMode(value as 'live' | 'draft')} className={`rounded-full px-3 py-1.5 text-xs font-semibold ${previewMode === value ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]' : ''}`} aria-pressed={previewMode === value} data-testid={`button-preview-${value}`}>{label}</button>)}</div><button onClick={() => setSaved(true)} className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--accent))] px-4 py-2 text-xs font-bold" data-testid="button-save-content">{saved ? <Check size={14} /> : <Sparkles size={14} />}{saved ? 'Saved locally' : 'Save changes'}</button></div></div><div className="grid lg:grid-cols-[220px_1fr]"><aside className="border-b border-[hsl(var(--border))] p-4 lg:border-b-0 lg:border-r lg:p-5"><p className="mb-3 px-2 font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Sections</p>{editableSections.map((item, index) => <button key={item} onClick={() => setActiveSection(index)} className={`flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm ${activeSection === index ? 'bg-[hsl(var(--secondary))] font-semibold' : 'text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--secondary)/.6)]'}`} data-testid={`button-section-${index}`}>{activeSection === index ? <Pencil size={14} className="text-[hsl(var(--primary))]" /> : <Circle size={8} className="ml-1 mr-1" />}{item}<ChevronRight size={14} className="ml-auto" /></button>)}</aside><div className="grid gap-8 p-5 md:p-8 xl:grid-cols-[1fr_330px]"><div><div className="mb-6 flex items-center justify-between"><div><p className="font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--primary))]">Editing {editableSections[activeSection].toLowerCase()}</p><h2 className="mt-2 font-display text-4xl">Make care easier to move through.</h2></div><span className="rounded-full bg-[hsl(var(--secondary))] px-3 py-1 font-mono-custom text-[10px]">{previewMode === 'live' ? 'LIVE' : 'DRAFT'}</span></div><div className="space-y-5"><label className="block"><span className="mb-2 block text-xs font-semibold">Eyebrow</span><input defaultValue="Product engineer · health-tech curious" className="w-full rounded-lg border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-3 text-sm" data-testid="input-customize-eyebrow" /></label><label className="block"><span className="mb-2 block text-xs font-semibold">Headline</span><textarea defaultValue="Make care easier to move through." rows={3} className="w-full resize-none rounded-lg border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-3 text-sm leading-6" data-testid="input-customize-headline" /></label><label className="block"><span className="mb-2 block text-xs font-semibold">Supporting copy</span><textarea defaultValue="Interfaces for the handoffs, decisions, and human moments that make care work." rows={4} className="w-full resize-none rounded-lg border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-3 text-sm leading-6" data-testid="input-customize-copy" /></label></div></div><div className="rounded-2xl bg-[#174e4b] p-5 text-[#f4f0e5]"><div className="mb-5 flex items-center justify-between"><span className="font-mono-custom text-[9px] uppercase tracking-widest text-[#b9d3ca]">Preview</span><Eye size={15} className="text-[#f3c46b]" /></div><div className="rounded-xl bg-[#f4f0e5] p-4 text-[#174e4b]"><span className="font-mono-custom text-[8px] uppercase tracking-widest">Product engineer · health-tech curious</span><p className="mt-8 font-display text-4xl leading-[.92]">Make care<br /><em className="text-[#368f86]">easier to move</em><br />through.</p><div className="mt-7 h-2 w-24 rounded-full bg-[#e98468]" /></div><p className="mt-5 text-xs leading-5 text-[#b9d3ca]">Changes are preview-only for now. Your future CMS can connect this panel to a publishing workflow.</p></div></div></div></div></section></main></Shell>;
 }
 
 function ContactPage() {
@@ -328,7 +340,7 @@ function ContactPage() {
 }
 
 function Router() {
-  return <ErrorBoundary resetKey={useLocation()[0]}><Switch><Route path="/" component={Home} /><Route path="/about" component={AboutPage} /><Route path="/projects" component={ProjectsPage} /><Route path="/projects/:slug" component={CaseStudyPage} /><Route path="/customize" component={CustomizePage} /><Route path="/contact" component={ContactPage} /><Route component={NotFound} /></Switch></ErrorBoundary>;
+  return <ErrorBoundary resetKey={useLocation()[0]}><Switch><Route path="/" component={Home} /><Route path="/about" component={AboutPage} /><Route path="/projects" component={ProjectsPage} /><Route path="/projects/:slug" component={CaseStudyPage} /><Route path="/contact" component={ContactPage} /><Route path="/customize" component={CustomizePage} /><Route component={NotFound} /></Switch></ErrorBoundary>;
 }
 
 function App() {

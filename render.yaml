@@ -1,0 +1,24 @@
+# ============================================================================
+# Render Blueprint — Backend API Server
+# ============================================================================
+# This file defines the infrastructure for deploying the API server on Render.
+# It can be used as a "Blueprint" — Render reads this to provision services.
+# ============================================================================
+
+services:
+  - type: web
+    name: api-server
+    runtime: docker
+    plan: free
+    dockerfilePath: ./artifacts/api-server/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        sync: false  # Set this manually in Render dashboard
+    healthCheckPath: /api/healthz
+    autoDeploy: true
+    branch: main
