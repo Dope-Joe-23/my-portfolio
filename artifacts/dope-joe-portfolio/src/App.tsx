@@ -227,7 +227,7 @@ function Footer() {
       <div><p className="mb-4 font-mono-custom text-[10px] uppercase tracking-[.18em] text-[hsl(var(--muted-foreground))]">Explore</p><div className="flex flex-col gap-3 text-sm"><TextLink href="/projects">Projects</TextLink><TextLink href="/about">About the practice</TextLink><TextLink href="/contact">Start a conversation</TextLink></div></div>
       <div><p className="mb-4 font-mono-custom text-[10px] uppercase tracking-[.18em] text-[hsl(var(--muted-foreground))]">Availability</p><p className="text-sm leading-6">Open to health-tech roles, thoughtful product teams, and select consulting.</p><a href="mailto:hello@dopejoe23.dev" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[hsl(var(--primary))]" data-testid="link-footer-email"><Mail size={15} />hello@dopejoe23.dev</a></div>
     </div>
-    <div className="mx-auto flex max-w-6xl flex-col gap-3 border-t border-[hsl(var(--border))] px-5 py-5 text-xs text-[hsl(var(--muted-foreground))] md:flex-row md:items-center md:justify-between lg:px-8"><span>Health-tech portfolio — available for hire / consulting</span><span className="font-mono-custom">© {new Date().getFullYear()} Joe Nyatefe</span></div>
+    <div className="mx-auto flex max-w-6xl flex-col gap-3 border-t border-[hsl(var(--border))] px-5 py-5 text-xs text-[hsl(var(--muted-foreground))] md:flex-row md:items-center md:justify-between lg:px-8"><span>Available for hire / consulting</span><span className="font-mono-custom">© {new Date().getFullYear()} Joe Nyatefe</span></div>
   </footer>;
 }
 
