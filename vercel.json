@@ -1,0 +1,16 @@
+{
+  "buildCommand": "pnpm -F @workspace/dope-joe-portfolio run build",
+  "outputDirectory": "artifacts/dope-joe-portfolio/dist/public",
+  "installCommand": "pnpm install",
+  "nodeVersion": "24.x",
+  "env": {
+    "BASE_PATH": "/"
+  },
+  "regions": ["sfo1"],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://your-api-project.vercel.app/api/:path*"
+    }
+  ]
+}

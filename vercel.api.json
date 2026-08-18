@@ -1,0 +1,16 @@
+{
+  "buildCommand": "pnpm -F @workspace/api-server run build",
+  "outputDirectory": "artifacts/api-server/dist",
+  "installCommand": "pnpm install",
+  "nodeVersion": "24.x",
+  "env": {
+    "PORT": "8080",
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "artifacts/api-server/dist/index.mjs": {
+      "runtime": "nodejs24.x",
+      "maxDuration": 30
+    }
+  }
+}
