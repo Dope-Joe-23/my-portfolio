@@ -38,7 +38,7 @@ const queryClient = new QueryClient();
 
 // Web3Forms delivers contact submissions straight to the inbox tied to this key.
 // Get a free key by entering josephnyatefe22@gmail.com at https://web3forms.com (the key is public/safe in client code).
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY';
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'cd1e26c2-94f2-4124-a957-6b5fa344c8de';
 
 type Project = {
   slug: string;
