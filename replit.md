@@ -50,6 +50,7 @@ The site leads with Dutyschedula and carestudy-automator, then presents selected
 
 - `dutyschedula` (formerly nurse-roster) is now linked to its live demo at https://nurse-roster-peach.vercel.app/.
 - `carestudy-automator` is now linked to its live demo at https://carestudy-assistant.vercel.app/.
+- The contact form delivers real email via Web3Forms (`POST https://api.web3forms.com/submit`). Set `VITE_WEB3FORMS_KEY` to the access key for josephnyatefe22@gmail.com (or paste it into `WEB3FORMS_ACCESS_KEY` in `App.tsx`).
 - The full authenticated CMS, media library, scheduling, audit log, and backup workflow are planned follow-up phases; the current customization page is a frontend preview.
 
 ## Pointers
