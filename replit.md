@@ -49,6 +49,7 @@ The site leads with Dutyschedula and carestudy-automator, then presents selected
 ## Gotchas
 
 - `dutyschedula` (formerly nurse-roster) is now linked to its live demo at https://nurse-roster-peach.vercel.app/.
+- `carestudy-automator` is now linked to its live demo at https://carestudy-assistant.vercel.app/.
 - The full authenticated CMS, media library, scheduling, audit log, and backup workflow are planned follow-up phases; the current customization page is a frontend preview.
 
 ## Pointers
